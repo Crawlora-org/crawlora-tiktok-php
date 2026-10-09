@@ -1,0 +1,1199 @@
+{
+  "platform": "tiktok",
+  "operationCount": 25,
+  "operationIds": [
+    "tiktok-category",
+    "tiktok-challenge",
+    "tiktok-challenge-list",
+    "tiktok-creative-center-hashtags",
+    "tiktok-creative-center-videos",
+    "tiktok-explore",
+    "tiktok-popular-trend-country-industry-meta",
+    "tiktok-post",
+    "tiktok-profile",
+    "tiktok-profile-post",
+    "tiktok-search",
+    "tiktok-search-hashtag",
+    "tiktok-search-user",
+    "tiktok-top-ads-analysis",
+    "tiktok-top-ads-detail",
+    "tiktok-top-ads-filters",
+    "tiktok-top-ads-list",
+    "tiktok-top-ads-location-info",
+    "tiktok-top-ads-locations",
+    "tiktok-top-ads-recommend",
+    "tiktok-top-ads-safety",
+    "tiktok-top-ads-spotlight",
+    "tiktok-top-ads-suggestions",
+    "tiktok-trending",
+    "tiktok-video-comments"
+  ],
+  "methods": {
+    "category": "tiktok-category",
+    "video_comments": "tiktok-video-comments",
+    "creative_center_hashtags": "tiktok-creative-center-hashtags",
+    "creative_center_videos": "tiktok-creative-center-videos",
+    "explore": "tiktok-explore",
+    "challenge": "tiktok-challenge",
+    "challenge_list": "tiktok-challenge-list",
+    "popular_trend_country_industry_meta": "tiktok-popular-trend-country-industry-meta",
+    "post": "tiktok-post",
+    "profile_post": "tiktok-profile-post",
+    "profile": "tiktok-profile",
+    "search": "tiktok-search",
+    "search_hashtag": "tiktok-search-hashtag",
+    "search_user": "tiktok-search-user",
+    "top_ads_analysis": "tiktok-top-ads-analysis",
+    "top_ads_detail": "tiktok-top-ads-detail",
+    "top_ads_filters": "tiktok-top-ads-filters",
+    "top_ads_list": "tiktok-top-ads-list",
+    "top_ads_location_info": "tiktok-top-ads-location-info",
+    "top_ads_locations": "tiktok-top-ads-locations",
+    "top_ads_recommend": "tiktok-top-ads-recommend",
+    "top_ads_safety": "tiktok-top-ads-safety",
+    "top_ads_spotlight": "tiktok-top-ads-spotlight",
+    "top_ads_suggestions": "tiktok-top-ads-suggestions",
+    "trending": "tiktok-trending"
+  },
+  "operations": {
+    "tiktok-category": {
+      "id": "tiktok-category",
+      "method": "GET",
+      "path": "/tiktok/category",
+      "pathParams": [],
+      "queryParams": [],
+      "params": [],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-video-comments": {
+      "id": "tiktok-video-comments",
+      "method": "GET",
+      "path": "/tiktok/comments",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "aweme_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "params": [
+        {
+          "description": "TikTok video id from the video URL",
+          "in": "query",
+          "name": "aweme_id",
+          "required": true,
+          "type": "string",
+          "x-example": "7304809083817774382"
+        },
+        {
+          "default": 0,
+          "description": "Pagination cursor",
+          "in": "query",
+          "name": "cursor",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-creative-center-hashtags": {
+      "id": "tiktok-creative-center-hashtags",
+      "method": "GET",
+      "path": "/tiktok/creative-center/hashtags",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "country_code",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "period",
+          "in": "query",
+          "type": "integer",
+          "enum": [
+            "7",
+            "30"
+          ]
+        }
+      ],
+      "params": [
+        {
+          "description": "ISO-2 country code",
+          "in": "query",
+          "name": "country_code",
+          "required": true,
+          "type": "string",
+          "x-example": "US"
+        },
+        {
+          "default": 7,
+          "description": "Lookback window in days",
+          "enum": [
+            7,
+            30
+          ],
+          "in": "query",
+          "name": "period",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-creative-center-videos": {
+      "id": "tiktok-creative-center-videos",
+      "method": "GET",
+      "path": "/tiktok/creative-center/videos",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "country_code",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "period",
+          "in": "query",
+          "type": "integer",
+          "enum": [
+            "7",
+            "30"
+          ]
+        },
+        {
+          "name": "sort_by",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "views",
+            "engagement",
+            "six_second_views"
+          ]
+        },
+        {
+          "name": "content_label_id",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "organic_only",
+          "in": "query",
+          "type": "boolean"
+        }
+      ],
+      "params": [
+        {
+          "description": "ISO-2 country code",
+          "in": "query",
+          "name": "country_code",
+          "required": true,
+          "type": "string",
+          "x-example": "US"
+        },
+        {
+          "default": 7,
+          "description": "Lookback window in days",
+          "enum": [
+            7,
+            30
+          ],
+          "in": "query",
+          "name": "period",
+          "type": "integer"
+        },
+        {
+          "default": "views",
+          "description": "Sort order",
+          "enum": [
+            "views",
+            "engagement",
+            "six_second_views"
+          ],
+          "in": "query",
+          "name": "sort_by",
+          "type": "string"
+        },
+        {
+          "description": "Content tag id to filter by",
+          "in": "query",
+          "name": "content_label_id",
+          "type": "string",
+          "x-example": "11015"
+        },
+        {
+          "default": false,
+          "description": "Restrict to organic (non-paid) videos only",
+          "in": "query",
+          "name": "organic_only",
+          "type": "boolean"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-explore": {
+      "id": "tiktok-explore",
+      "method": "GET",
+      "path": "/tiktok/explore/{id}",
+      "pathParams": [
+        "id"
+      ],
+      "queryParams": [],
+      "params": [
+        {
+          "description": "Category type id returned by the category endpoint",
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "type": "integer",
+          "x-example": 120
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-challenge": {
+      "id": "tiktok-challenge",
+      "method": "GET",
+      "path": "/tiktok/hashtag/{name}",
+      "pathParams": [
+        "name"
+      ],
+      "queryParams": [],
+      "params": [
+        {
+          "description": "Hashtag name (e.g., 'christmas')",
+          "in": "path",
+          "name": "name",
+          "required": true,
+          "type": "string",
+          "x-example": "christmas"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-challenge-list": {
+      "id": "tiktok-challenge-list",
+      "method": "GET",
+      "path": "/tiktok/hashtags",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "params": [
+        {
+          "description": "Hashtag id returned by the hashtag detail endpoint",
+          "in": "query",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "3242"
+        },
+        {
+          "default": 0,
+          "description": "Pagination cursor",
+          "in": "query",
+          "name": "cursor",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-popular-trend-country-industry-meta": {
+      "id": "tiktok-popular-trend-country-industry-meta",
+      "method": "GET",
+      "path": "/tiktok/popular-trend/country-industry-meta",
+      "pathParams": [],
+      "queryParams": [],
+      "params": [],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-post": {
+      "id": "tiktok-post",
+      "method": "GET",
+      "path": "/tiktok/post/{id}",
+      "pathParams": [
+        "id"
+      ],
+      "queryParams": [],
+      "params": [
+        {
+          "description": "TikTok video id",
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "type": "string",
+          "x-example": "7444278905264983342"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-profile-post": {
+      "id": "tiktok-profile-post",
+      "method": "GET",
+      "path": "/tiktok/posts",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "secUid",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "sort_type",
+          "in": "query",
+          "type": "integer",
+          "enum": [
+            "0",
+            "1",
+            "2"
+          ]
+        }
+      ],
+      "params": [
+        {
+          "description": "TikTok secUid for the profile",
+          "in": "query",
+          "name": "secUid",
+          "required": true,
+          "type": "string",
+          "x-example": "MS4wLjABAAAAT4vq3vsh9X-Vb_WtV6tz4QWTbKjliTKCiK5DqnJNtQEA2RUveHb7UdnL7xgPK2HB"
+        },
+        {
+          "default": 0,
+          "description": "Pagination cursor",
+          "in": "query",
+          "name": "cursor",
+          "type": "integer"
+        },
+        {
+          "default": 0,
+          "description": "Sort mode: 0 latest, 1 popular, 2 oldest",
+          "enum": [
+            0,
+            1,
+            2
+          ],
+          "in": "query",
+          "name": "sort_type",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-profile": {
+      "id": "tiktok-profile",
+      "method": "GET",
+      "path": "/tiktok/profile/{handler}",
+      "pathParams": [
+        "handler"
+      ],
+      "queryParams": [],
+      "params": [
+        {
+          "description": "TikTok handle without the leading @",
+          "in": "path",
+          "name": "handler",
+          "required": true,
+          "type": "string",
+          "x-example": "chatgpt"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-search": {
+      "id": "tiktok-search",
+      "method": "GET",
+      "path": "/tiktok/search",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "keyword",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "count",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "params": [
+        {
+          "description": "Search keyword",
+          "in": "query",
+          "name": "keyword",
+          "required": true,
+          "type": "string",
+          "x-example": "dance"
+        },
+        {
+          "default": 0,
+          "description": "Pagination cursor",
+          "in": "query",
+          "name": "cursor",
+          "type": "integer"
+        },
+        {
+          "default": 20,
+          "description": "Result count, clamped to 50",
+          "in": "query",
+          "name": "count",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-search-hashtag": {
+      "id": "tiktok-search-hashtag",
+      "method": "GET",
+      "path": "/tiktok/search/hashtag",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "keyword",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "count",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "params": [
+        {
+          "description": "Search keyword",
+          "in": "query",
+          "name": "keyword",
+          "required": true,
+          "type": "string",
+          "x-example": "chatgpt"
+        },
+        {
+          "default": 0,
+          "description": "Pagination cursor",
+          "in": "query",
+          "name": "cursor",
+          "type": "integer"
+        },
+        {
+          "default": 20,
+          "description": "Result count, clamped to 50",
+          "in": "query",
+          "name": "count",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-search-user": {
+      "id": "tiktok-search-user",
+      "method": "GET",
+      "path": "/tiktok/search/user",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "keyword",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "params": [
+        {
+          "description": "Search keyword",
+          "in": "query",
+          "name": "keyword",
+          "required": true,
+          "type": "string",
+          "x-example": "chatgpt"
+        },
+        {
+          "default": 0,
+          "description": "Pagination cursor",
+          "in": "query",
+          "name": "cursor",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-top-ads-analysis": {
+      "id": "tiktok-top-ads-analysis",
+      "method": "GET",
+      "path": "/tiktok/top-ads/analysis",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "material_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "metric",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "retain_ctr",
+            "retain_cvr",
+            "click_cnt",
+            "convert_cnt",
+            "play_retain_cnt"
+          ]
+        },
+        {
+          "name": "period_type",
+          "in": "query",
+          "type": "integer",
+          "enum": [
+            "7",
+            "30",
+            "180"
+          ]
+        }
+      ],
+      "params": [
+        {
+          "description": "Top Ads material id",
+          "in": "query",
+          "name": "material_id",
+          "required": true,
+          "type": "string",
+          "x-example": "7130614705291427842"
+        },
+        {
+          "default": "retain_ctr",
+          "description": "Interactive time analysis metric",
+          "enum": [
+            "retain_ctr",
+            "retain_cvr",
+            "click_cnt",
+            "convert_cnt",
+            "play_retain_cnt"
+          ],
+          "in": "query",
+          "name": "metric",
+          "type": "string"
+        },
+        {
+          "default": 7,
+          "description": "Percentile lookback period in days",
+          "enum": [
+            7,
+            30,
+            180
+          ],
+          "in": "query",
+          "name": "period_type",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-top-ads-detail": {
+      "id": "tiktok-top-ads-detail",
+      "method": "GET",
+      "path": "/tiktok/top-ads/detail",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "material_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        }
+      ],
+      "params": [
+        {
+          "description": "Top Ads material id",
+          "in": "query",
+          "name": "material_id",
+          "required": true,
+          "type": "string",
+          "x-example": "7631130810943897607"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-top-ads-filters": {
+      "id": "tiktok-top-ads-filters",
+      "method": "GET",
+      "path": "/tiktok/top-ads/filters",
+      "pathParams": [],
+      "queryParams": [],
+      "params": [],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-top-ads-list": {
+      "id": "tiktok-top-ads-list",
+      "method": "GET",
+      "path": "/tiktok/top-ads/list",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "period",
+          "in": "query",
+          "type": "integer",
+          "enum": [
+            "7",
+            "30",
+            "180"
+          ]
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "order_by",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "for_you",
+            "impression",
+            "ctr",
+            "play_2s_rate",
+            "play_6s_rate",
+            "cvr",
+            "like"
+          ]
+        },
+        {
+          "name": "country_code",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "keyword",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "industry",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "objective",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "ad_language",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "pattern_label",
+          "in": "query",
+          "type": "string"
+        },
+        {
+          "name": "duration",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "time-2",
+            "time-3",
+            "time-4",
+            "time-5",
+            "time-6",
+            "time-7"
+          ]
+        },
+        {
+          "name": "like",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
+        },
+        {
+          "name": "ad_format",
+          "in": "query",
+          "type": "string",
+          "enum": [
+            "1",
+            "2"
+          ]
+        }
+      ],
+      "params": [
+        {
+          "default": 30,
+          "description": "Lookback period in days",
+          "enum": [
+            7,
+            30,
+            180
+          ],
+          "in": "query",
+          "name": "period",
+          "type": "integer"
+        },
+        {
+          "default": 1,
+          "description": "Page number",
+          "in": "query",
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        },
+        {
+          "default": 20,
+          "description": "Maximum number of ads to return",
+          "in": "query",
+          "maximum": 100,
+          "name": "limit",
+          "type": "integer"
+        },
+        {
+          "default": "for_you",
+          "description": "Sort order",
+          "enum": [
+            "for_you",
+            "impression",
+            "ctr",
+            "play_2s_rate",
+            "play_6s_rate",
+            "cvr",
+            "like"
+          ],
+          "in": "query",
+          "name": "order_by",
+          "type": "string"
+        },
+        {
+          "description": "Country code or comma-separated country codes from /tiktok/top-ads/filters",
+          "in": "query",
+          "name": "country_code",
+          "type": "string",
+          "x-example": "US"
+        },
+        {
+          "description": "Brand or product keyword search",
+          "in": "query",
+          "name": "keyword",
+          "type": "string",
+          "x-example": "coffee"
+        },
+        {
+          "description": "Industry filter id or comma-separated ids from /tiktok/top-ads/filters",
+          "in": "query",
+          "name": "industry",
+          "type": "string",
+          "x-example": "23118000000"
+        },
+        {
+          "description": "Objective filter id or comma-separated ids from /tiktok/top-ads/filters",
+          "in": "query",
+          "name": "objective",
+          "type": "string",
+          "x-example": "3"
+        },
+        {
+          "description": "Ad language id or comma-separated ids from /tiktok/top-ads/filters",
+          "in": "query",
+          "name": "ad_language",
+          "type": "string",
+          "x-example": "en"
+        },
+        {
+          "description": "Pattern label id or comma-separated ids from /tiktok/top-ads/filters",
+          "in": "query",
+          "name": "pattern_label",
+          "type": "string",
+          "x-example": "10100100000"
+        },
+        {
+          "description": "Video duration bucket",
+          "enum": [
+            "time-2",
+            "time-3",
+            "time-4",
+            "time-5",
+            "time-6",
+            "time-7"
+          ],
+          "in": "query",
+          "name": "duration",
+          "type": "string"
+        },
+        {
+          "description": "Like percentile bucket id or comma-separated ids",
+          "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "in": "query",
+          "name": "like",
+          "type": "string"
+        },
+        {
+          "description": "Ad format id",
+          "enum": [
+            "1",
+            "2"
+          ],
+          "in": "query",
+          "name": "ad_format",
+          "type": "string"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-top-ads-location-info": {
+      "id": "tiktok-top-ads-location-info",
+      "method": "GET",
+      "path": "/tiktok/top-ads/location-info",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "module",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "params": [
+        {
+          "default": 1,
+          "description": "Creative Center module id",
+          "in": "query",
+          "name": "module",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-top-ads-locations": {
+      "id": "tiktok-top-ads-locations",
+      "method": "GET",
+      "path": "/tiktok/top-ads/locations",
+      "pathParams": [],
+      "queryParams": [],
+      "params": [],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-top-ads-recommend": {
+      "id": "tiktok-top-ads-recommend",
+      "method": "GET",
+      "path": "/tiktok/top-ads/recommend",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "material_id",
+          "in": "query",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "params": [
+        {
+          "description": "Top Ads material id",
+          "in": "query",
+          "name": "material_id",
+          "required": true,
+          "type": "string",
+          "x-example": "7631130810943897607"
+        },
+        {
+          "default": 1,
+          "description": "Page number",
+          "in": "query",
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        },
+        {
+          "default": 20,
+          "description": "Maximum number of ads to return",
+          "in": "query",
+          "maximum": 100,
+          "name": "limit",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-top-ads-safety": {
+      "id": "tiktok-top-ads-safety",
+      "method": "GET",
+      "path": "/tiktok/top-ads/safety",
+      "pathParams": [],
+      "queryParams": [],
+      "params": [],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-top-ads-spotlight": {
+      "id": "tiktok-top-ads-spotlight",
+      "method": "GET",
+      "path": "/tiktok/top-ads/spotlight",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "page",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "params": [
+        {
+          "default": 1,
+          "description": "Page number",
+          "in": "query",
+          "minimum": 1,
+          "name": "page",
+          "type": "integer"
+        },
+        {
+          "default": 20,
+          "description": "Maximum number of ads to return",
+          "in": "query",
+          "maximum": 100,
+          "name": "limit",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-top-ads-suggestions": {
+      "id": "tiktok-top-ads-suggestions",
+      "method": "GET",
+      "path": "/tiktok/top-ads/suggestions",
+      "pathParams": [],
+      "queryParams": [
+        {
+          "name": "count",
+          "in": "query",
+          "type": "integer"
+        },
+        {
+          "name": "scenario",
+          "in": "query",
+          "type": "integer"
+        }
+      ],
+      "params": [
+        {
+          "default": 50,
+          "description": "Maximum number of suggestions to return",
+          "in": "query",
+          "name": "count",
+          "type": "integer"
+        },
+        {
+          "default": 1,
+          "description": "Suggestion scenario id",
+          "in": "query",
+          "name": "scenario",
+          "type": "integer"
+        }
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    },
+    "tiktok-trending": {
+      "id": "tiktok-trending",
+      "method": "GET",
+      "path": "/tiktok/trending",
+      "pathParams": [],
+      "queryParams": [],
+      "params": [],
+      "produces": [
+        "application/json"
+      ],
+      "security": [
+        "ApiKeyAuth"
+      ]
+    }
+  }
+}
